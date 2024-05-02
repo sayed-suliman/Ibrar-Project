@@ -2,10 +2,15 @@ const express = require("express");
 const hbs = require("hbs");
 const path = require('path');
 const app = express();
+// databse connection
+
+
 require("dotenv").config({
-    path: path.resolve(__dirname, "/", ".env")
+    path: path.resolve(__dirname, ".env")
 });
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
+
+require("./src/db/connection");
 
 // Setup hbs as template engine
 app.set("view engine", "hbs");
