@@ -2,11 +2,11 @@ const CustomerModel = require("../../models/customer");
 
 module.exports = {
     // add customer
-    async add(req, res) {
+    async postAdd(req, res) {
         try {
             const data = req.body;
             console.log(data);
-            const customer = await CustomerModel({ data }).save();
+            const customer = await CustomerModel(data).save();
             console.log(customer);
             return res.redirect("/");
         } catch (e) {
@@ -15,9 +15,9 @@ module.exports = {
         }
     },
     // get all data
-    async get(req, res) {
+    async getAdd(req, res) {
         try {
-            res.status(201).send('passed here');
+            return res.render("customer/add");
         } catch (e) {
             res.status(401).send('Error', e.message);
         }
