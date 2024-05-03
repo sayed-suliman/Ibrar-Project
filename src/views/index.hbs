@@ -10,13 +10,14 @@
         <!-- Start Card Body -->
         <div class="card-body">
             <!-- Start Form -->
-            <form id="bookingForm" action="/add" method="post" class="needs-validation" novalidate autocomplete="off">
+            <form id="bookingForm" action="/customer" method="post" class="needs-validation" novalidate
+                autocomplete="off">
                 <div class="form-row">
                     <!-- Start PP NUM Name -->
                     <div class="form-group col-md-6">
                         <label for="pp_num">PP NUM</label>
-                        <input type="text" class="form-control" id="pp_num" name="pp_num" placeholder="Enter PP Number"
-                            required />
+                        <input type="text" class="form-control" id="pp_num" name="pp_num"
+                            placeholder="Enter PP Number" />
                         <small class="form-text text-muted">Please fill customer pp number</small>
                     </div>
                     <!-- End PP NUM Name -->
@@ -25,7 +26,7 @@
                     <div class="form-group col-md-6">
                         <label for="customer_name">Customer Name </label>
                         <input type="text" class="form-control" id="customer_name" name="customer_name"
-                            placeholder="Enter Customer Name" required />
+                            placeholder="Enter Customer Name" />
                         <small class="form-text text-muted">Please fill Customer Name</small>
                     </div>
                     <!-- Endcustomer_name Name -->
@@ -36,7 +37,7 @@
                     <div class="form-group col-md-6">
                         <label for="customer_mob">Customer Mob</label>
                         <input type="tel" class="form-control" id="customer_mob" name="customer_mob"
-                            placeholder="099xxxxxxx" pattern="\d{3}\d{3}\d{4}" required />
+                            placeholder="099xxxxxxx" />
                         <small class="form-text text-muted">Please fill Telephone Number.</small>
                     </div>
                     <!-- End Input Telephone -->
@@ -46,7 +47,7 @@
                     <div class="form-group col-md-6">
                         <label for="supplier">Supplier</label>
                         <input type="text" class="form-control" id="supplier" name="supplier"
-                            placeholder="Enter Supplier" required />
+                            placeholder="Enter Supplier" />
                         <small class="form-text text-muted">Please fill Supplier Field</small>
                     </div>
                     <!-- Endcustomer_name Name -->
@@ -58,7 +59,7 @@
                     <!-- Start Input Date -->
                     <div class="form-group col-md-6">
                         <label for="startDate">Start Date</label>
-                        <input type="date" class="form-control" id="start-date" name="start-date" required />
+                        <input type="date" class="form-control" id="start_date" name="start_date" />
                         <small class="form-text text-muted">Please choose Start Date.</small>
                     </div>
                     <!-- End Input Date -->
@@ -66,8 +67,8 @@
                     <!-- StartTo Date -->
 
                     <div class="form-group col-md-6">
-                        <label for="end-date">End Date</label>
-                        <input type="date" class="form-control" id="end-date" name="date" required />
+                        <label for="end_date">End Date</label>
+                        <input type="date" class="form-control" id="end_date" name="end_date" />
                         <small class="form-text text-muted">Please choose date and time for meeting.</small>
                     </div>
                     <!-- EndTo Date -->

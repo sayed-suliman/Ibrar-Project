@@ -4,6 +4,7 @@ const customerSchema = new mongoose.Schema({
     pp_num: {
         type: String,
         required: true,
+        unique: true // Ensures uniqueness
     },
     customer_name: {
         type: String,

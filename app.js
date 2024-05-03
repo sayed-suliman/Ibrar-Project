@@ -2,6 +2,8 @@ const express = require("express");
 const hbs = require("hbs");
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
+
 // databse connection
 
 
@@ -11,6 +13,12 @@ require("dotenv").config({
 const port = process.env.PORT;
 
 require("./src/db/connection");
+
+
+// app all data
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
 
 // Setup hbs as template engine
 app.set("view engine", "hbs");
