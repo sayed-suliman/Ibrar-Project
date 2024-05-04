@@ -1,133 +1,48 @@
 {{>header}}
-
-{{!-- start container --}}
 <div class="container my-5">
-    <h1 class="text-center my-5">
-        Offered By Ibrar
-    </h1>
-    <!-- Start Card -->
-    <div class="card">
-        <!-- Start Card Body -->
-        <div class="card-body">
-            <!-- Start Form -->
-            <form id="bookingForm" action="/customer" method="post" class="needs-validation" novalidate
-                autocomplete="off">
-                <div class="form-row">
-                    <!-- Start PP NUM Name -->
-                    <div class="form-group col-md-6">
-                        <label for="pp_num">PP NUM</label>
-                        <input type="text" class="form-control" id="pp_num" name="pp_num"
-                            placeholder="Enter PP Number" />
-                        <small class="form-text text-muted">Please fill customer pp number</small>
-                    </div>
-                    <!-- End PP NUM Name -->
-
-                    <!-- Start customer_name -->
-                    <div class="form-group col-md-6">
-                        <label for="customer_name">Customer Name </label>
-                        <input type="text" class="form-control" id="customer_name" name="customer_name"
-                            placeholder="Enter Customer Name" />
-                        <small class="form-text text-muted">Please fill Customer Name</small>
-                    </div>
-                    <!-- Endcustomer_name Name -->
-                </div>
-                {{!-- 2nd row --}}
-                <div class="form-row">
-                    <!-- Start Input Telephone -->
-                    <div class="form-group col-md-6">
-                        <label for="customer_mob">Customer Mob</label>
-                        <input type="tel" class="form-control" id="customer_mob" name="customer_mob"
-                            placeholder="099xxxxxxx" />
-                        <small class="form-text text-muted">Please fill Telephone Number.</small>
-                    </div>
-                    <!-- End Input Telephone -->
-
-
-                    <!-- Start Supplier  -->
-                    <div class="form-group col-md-6">
-                        <label for="supplier">Supplier</label>
-                        <input type="text" class="form-control" id="supplier" name="supplier"
-                            placeholder="Enter Supplier" />
-                        <small class="form-text text-muted">Please fill Supplier Field</small>
-                    </div>
-                    <!-- Endcustomer_name Name -->
-                </div>
-
-                {{!--3rd row --}}
-                <!-- Start Input Date , Start Time and End Time -->
-                <div class="form-row">
-                    <!-- Start Input Date -->
-                    <div class="form-group col-md-6">
-                        <label for="startDate">Start Date</label>
-                        <input type="date" class="form-control" id="start_date" name="start_date" />
-                        <small class="form-text text-muted">Please choose Start Date.</small>
-                    </div>
-                    <!-- End Input Date -->
-
-                    <!-- StartTo Date -->
-
-                    <div class="form-group col-md-6">
-                        <label for="end_date">End Date</label>
-                        <input type="date" class="form-control" id="end_date" name="end_date" />
-                        <small class="form-text text-muted">Please choose date and time for meeting.</small>
-                    </div>
-                    <!-- EndTo Date -->
-                </div>
-                <!-- End Input Date , Start Time and End Time -->
-
-                <hr />
-
-
-                <!-- Start Input Remark -->
-                <div class="form-group">
-                    <label for="textAreaRemark">Notes</label>
-                    <textarea class="form-control" name="remark" id="textAreaRemark" rows="3"
-                        placeholder="Tell us you want more..."></textarea>
-                    <small class="form-text text-muted">Optional.</small>
-                </div>
-                <!-- End Input Remark -->
-
-                <!-- Start Submit Button -->
-                <button class="btn btn-primary btn-block col-lg-2 mx-auto" type="submit">Submit</button>
-                <!-- End Submit Button -->
-            </form>
-            <!-- End Form -->
-        </div>
-        <!-- End Card Body -->
-    </div>
+    <table id="all-customers" class="table table-striped" style="width:100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011-04-25</td>
+                <td>$320,800</td>
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011-07-25</td>
+                <td>$170,750</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Age</th>
+                <th>Start date</th>
+                <th>Salary</th>
+            </tr>
+        </tfoot>
+    </table>
 </div>
 
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
 
-<!-- Start Scritp for Form -->
-<script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script>
 <!-- End Scritp for Form -->
+
+{{>footer}}
