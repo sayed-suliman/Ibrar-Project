@@ -1,45 +1,61 @@
 {{>header}}
-<div class="container my-5">
-    <table id="all-customers" class="table table-striped" style="width:100%">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Tiger Nixon</td>
-                <td>System Architect</td>
-                <td>Edinburgh</td>
-                <td>61</td>
-                <td>2011-04-25</td>
-                <td>$320,800</td>
-            </tr>
-            <tr>
-                <td>Garrett Winters</td>
-                <td>Accountant</td>
-                <td>Tokyo</td>
-                <td>63</td>
-                <td>2011-07-25</td>
-                <td>$170,750</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Position</th>
-                <th>Office</th>
-                <th>Age</th>
-                <th>Start date</th>
-                <th>Salary</th>
-            </tr>
-        </tfoot>
-    </table>
+<div class="main">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+
+                <h1>Customer Data</h1>
+            </div>
+            <div class="col text-end">
+                <a href="/customer/add"><button type="button" class="btn btn-primary">Add Customer</button></a>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        {{#if customers}}
+        <table id="all-customers" class="table table-striped text-start" style="width:100%">
+            <thead>
+                <tr>
+                    <th class="text-start">PP_Num</th>
+                    <th class="text-start">Customer Name</th>
+                    <th class="text-start">Customer Mob</th>
+                    <th class="text-start">Supplier</th>
+                    <th class="text-start">Start date</th>
+                    <th class="text-start">End date</th>
+                    <th class="text-start">Remaining Days</th>
+                </tr>
+            </thead>
+            <tbody class="text-start">
+                {{#each customers}}
+                <tr>
+                    <td class="text-start">{{this.pp_num}}</td>
+                    <td class="text-start">{{this.customer_name}}</td>
+                    <td class="text-start">{{this.customer_mob}}</td>
+                    <td class="text-start">{{this.supplier}}</td>
+                    <td class="text-start">{{formatDate this.start_date}}</td>
+                    <td class="text-start">{{formatDate this.end_date}}</td>
+                    <td class="{{checkStatus this.start_date this.end_date}} text-start">{{remainingDays
+                        this.start_date
+                        this.end_date}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+            <tfoot class=" text-start">
+                <tr>
+                    <th class="text-start">PP_Num</th>
+                    <th class=" text-start">Customer Name</th>
+                    <th class="text-start">Customer Mob</th>
+                    <th class=" text-start">Supplier</th>
+                    <th class="text-start">Start date</th>
+                    <th class=" text-start">End date</th>
+                    <th class="text-start">Remaining Days</th>
+                </tr>
+            </tfoot>
+        </table>
+        {{else}}
+        <h3 class=" text-danger">No data found</h3>
+        {{/if}}
+    </div>
 </div>
 
 

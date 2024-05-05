@@ -13,7 +13,7 @@ require("dotenv").config({
 const port = process.env.PORT;
 
 require("./src/db/connection");
-
+require("./src/utils/hbsHelper");
 
 // app all data
 app.use(bodyParser.urlencoded({ extended: true }));

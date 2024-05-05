@@ -8,28 +8,27 @@ const customerSchema = new mongoose.Schema({
     },
     customer_name: {
         type: String,
-        require: true
+        required: true
     },
     customer_mob: {
         type: String,
-        require: true
+        required: true
     },
     supplier: {
         type: String,
-        require: true
+        required: true
     },
     start_date: {
         type: Date,
-        require: true,
+        required: true,
         default: Date.now()
     },
     end_date: {
         type: Date,
-        require: true,
+        required: true,
     },
     notes: {
         type: String,
-        require: true
     }
 
 });

@@ -1,5 +1,14 @@
+const CustomerModel = require("../models/customer");
+
 module.exports = {
-    dashboard(req, res) {
-        res.render("index");
+    async dashboard(req, res) {
+        try {
+            const customers = await CustomerModel.find();
+            return res.render("index", {
+                customers
+            });
+        } catch (e) {
+            return res.redirect('/');
+        }
     },
 };

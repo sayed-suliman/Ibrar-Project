@@ -1,4 +1,5 @@
 const CustomerModel = require("../../models/customer");
+const queryString = require('querystring');
 
 module.exports = {
     // add customer
@@ -8,16 +9,24 @@ module.exports = {
             console.log(data);
             const customer = await CustomerModel(data).save();
             console.log(customer);
-            return res.redirect("/");
+            if (customer) {
+                const success = "Data Added";
+                return res.redirect(`/customer/add?success=${encodeURIComponent(success)}`);
+            } else {
+                throw new Error('Error occured while adding customer');
+            }
         } catch (e) {
             console.log('error', e);
-            return res.status(401).send('Error', e.message);
+            const error = e.message;
+            return res.redirect(`/customer/add?error=${encodeURIComponent(error)}`);
         }
     },
     // get all data
     async getAdd(req, res) {
         try {
-            return res.render("customer/add");
+            const { error, success } = req.query;
+            console.log(decodeURIComponent(success))
+            return res.render("customer/add", { error, success });
         } catch (e) {
             res.status(401).send('Error', e.message);
         }

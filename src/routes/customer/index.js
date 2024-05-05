@@ -4,6 +4,6 @@ const router = express.Router();
 // add
 router.post("/", customer.postAdd);
 // read form
-router.get("/", customer.getAdd);
+router.get("/add", customer.getAdd);
 
 module.exports = router;

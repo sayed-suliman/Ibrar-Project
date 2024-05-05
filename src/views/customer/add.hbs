@@ -1,5 +1,47 @@
 {{>header}}
 
+{{#if success}}
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="showMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-success">Success</strong>
+            {{!-- <small>11 mins ago</small> --}}
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            The customer has been saved.
+            {{success}}
+        </div>
+    </div>
+</div>
+{{/if}}
+{{#if error}}
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="showMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-danger">Error</strong>
+            {{!-- <small>11 mins ago</small> --}}
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{error}}
+        </div>
+    </div>
+</div>
+{{/if}}
+
+
+
+
+
+
+
+
+
+
+
+
+
 {{!-- start container --}}
 <div class="container my-5">
     <h1 class="text-center my-5">
@@ -26,7 +68,7 @@
                     <div class="form-group col-md-6">
                         <label for="customer_name">Customer Name </label>
                         <input type="text" class="form-control" id="customer_name" name="customer_name"
-                            placeholder="Enter Customer Name" />
+                            placeholder="Enter Customer Name" required />
                         <small class="form-text text-muted">Please fill Customer Name</small>
                     </div>
                     <!-- Endcustomer_name Name -->
@@ -37,7 +79,7 @@
                     <div class="form-group col-md-6">
                         <label for="customer_mob">Customer Mob</label>
                         <input type="tel" class="form-control" id="customer_mob" name="customer_mob"
-                            placeholder="099xxxxxxx" />
+                            placeholder="099xxxxxxx" required />
                         <small class="form-text text-muted">Please fill Telephone Number.</small>
                     </div>
                     <!-- End Input Telephone -->
@@ -47,7 +89,7 @@
                     <div class="form-group col-md-6">
                         <label for="supplier">Supplier</label>
                         <input type="text" class="form-control" id="supplier" name="supplier"
-                            placeholder="Enter Supplier" />
+                            placeholder="Enter Supplier" required />
                         <small class="form-text text-muted">Please fill Supplier Field</small>
                     </div>
                     <!-- Endcustomer_name Name -->
@@ -59,7 +101,7 @@
                     <!-- Start Input Date -->
                     <div class="form-group col-md-6">
                         <label for="startDate">Start Date</label>
-                        <input type="date" class="form-control" id="start_date" name="start_date" />
+                        <input type="date" class="form-control" id="start_date" name="start_date" required />
                         <small class="form-text text-muted">Please choose Start Date.</small>
                     </div>
                     <!-- End Input Date -->
@@ -68,7 +110,7 @@
 
                     <div class="form-group col-md-6">
                         <label for="end_date">End Date</label>
-                        <input type="date" class="form-control" id="end_date" name="end_date" />
+                        <input type="date" class="form-control" id="end_date" name="end_date" required />
                         <small class="form-text text-muted">Please choose date and time for meeting.</small>
                     </div>
                     <!-- EndTo Date -->
@@ -81,14 +123,17 @@
                 <!-- Start Input Remark -->
                 <div class="form-group">
                     <label for="textAreaRemark">Notes</label>
-                    <textarea class="form-control" name="remark" id="textAreaRemark" rows="3"
+                    <textarea class="form-control" name="note" id="textAreaRemark" rows="3"
                         placeholder="Tell us you want more..."></textarea>
                     <small class="form-text text-muted">Optional.</small>
                 </div>
                 <!-- End Input Remark -->
 
                 <!-- Start Submit Button -->
-                <button class="btn btn-primary btn-block col-lg-2 mx-auto" type="submit">Submit</button>
+                <div class="text-center mt-5">
+
+                    <button class="btn btn-primary btn-block col-lg-2 mx-auto" type="submit">Submit</button>
+                </div>
                 <!-- End Submit Button -->
             </form>
             <!-- End Form -->
@@ -118,15 +163,22 @@
             });
         }, false);
     })();
+
+    //----------------- for toast  -------------------- //
+    /* const toastTrigger = document.getElementById('liveToastBtn')
+     const toastLiveExample = document.getElementById('liveToast')
+     if (toastTrigger) {
+         toastTrigger.addEventListener('click', () => {
+             const toast = new bootstrap.Toast(toastLiveExample)
+ 
+             toast.show()
+         })
+     }*/
 </script>
-<!-- End Scritp for Form -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-    crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-    crossorigin="anonymous"></script>
 {{>footer}}
+<script>
+    const toastLiveExample = document.getElementById('showMessage')
+
+    const toast = new bootstrap.Toast(toastLiveExample);
+    toast.show();
+</script>
