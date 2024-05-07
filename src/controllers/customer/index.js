@@ -31,4 +31,16 @@ module.exports = {
             res.status(401).send('Error', e.message);
         }
     },
+    // remove customer
+    async removeCustomer(req, res) {
+        try {
+            const { id } = req.params;
+            console.log(id);
+            const customer = await CustomerModel.findByIdAndDelete(id);
+            console.log(customer);
+            return res.redirect("/");
+        } catch (e) {
+            res.status(401).send('Error', e.message);
+        }
+    }
 }

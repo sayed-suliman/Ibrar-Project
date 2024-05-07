@@ -23,6 +23,7 @@
                     <th class="text-start">Start date</th>
                     <th class="text-start">End date</th>
                     <th class="text-start">Remaining Days</th>
+                    <th class="text-start">Delete</th>
                 </tr>
             </thead>
             <tbody class="text-start">
@@ -37,6 +38,13 @@
                     <td class="{{checkStatus this.start_date this.end_date}} text-start">{{remainingDays
                         this.start_date
                         this.end_date}}</td>
+                    <td>
+                        <a href="/customer/delete/{{this._id}}">
+                            <button class="btn btn-danger">
+                                Delete
+                            </button>
+                        </a>
+                    </td>
                 </tr>
                 {{/each}}
             </tbody>

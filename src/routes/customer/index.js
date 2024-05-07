@@ -5,5 +5,7 @@ const router = express.Router();
 router.post("/", customer.postAdd);
 // read form
 router.get("/add", customer.getAdd);
+// delete customer
+router.get("/delete/:id", customer.removeCustomer)
 
 module.exports = router;

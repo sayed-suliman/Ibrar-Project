@@ -3,7 +3,7 @@ const hbs = require("hbs");
 const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
-
+const flash = require('connect-flash');
 // databse connection
 
 
@@ -18,6 +18,14 @@ require("./src/utils/hbsHelper");
 // app all data
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// flash images
+app.use(flash());
+app.use(function (req, res, next) {
+    res.locals.success = req.flash("success");
+    next();
+})
+
 
 
 // Setup hbs as template engine
