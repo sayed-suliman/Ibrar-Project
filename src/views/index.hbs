@@ -1,4 +1,41 @@
 {{>header}}
+
+
+{{#if success}}
+<div class="toast-container position-fixed top-0 end-0 p-3">
+    <div id="showMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-success">Success</strong>
+            {{!-- <small>11 mins ago</small> --}}
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            The customer has been deleted.
+        </div>
+    </div>
+</div>
+{{/if}}
+{{#if error}}
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="showMessage" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+            <strong class="me-auto text-danger">Error</strong>
+            {{!-- <small>11 mins ago</small> --}}
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+            {{error}}
+        </div>
+    </div>
+</div>
+{{/if}}
+
+
+
+
+
+
+
 <div class="main">
     <div class="container mt-5">
         <div class="row">
@@ -70,3 +107,9 @@
 <!-- End Scritp for Form -->
 
 {{>footer}}
+<script>
+    const toastLiveExample = document.getElementById('showMessage')
+
+    const toast = new bootstrap.Toast(toastLiveExample);
+    toast.show();
+</script>

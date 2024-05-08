@@ -38,6 +38,7 @@ module.exports = {
             console.log(id);
             const customer = await CustomerModel.findByIdAndDelete(id);
             console.log(customer);
+            req.flash("success", "The user has been deleted");
             return res.redirect("/");
         } catch (e) {
             res.status(401).send('Error', e.message);

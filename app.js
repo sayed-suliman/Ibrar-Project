@@ -4,8 +4,14 @@ const path = require('path');
 const app = express();
 const bodyParser = require('body-parser');
 const flash = require('connect-flash');
-// databse connection
+const crypto = require('crypto');
+const session = require('express-session');
 
+// databse connection
+// Function to generate a random secret key
+const generateSecretKey = () => {
+    return crypto.randomBytes(16).toString('hex');
+};
 
 require("dotenv").config({
     path: path.resolve(__dirname, ".env")
@@ -14,6 +20,13 @@ const port = process.env.PORT;
 
 require("./src/db/connection");
 require("./src/utils/hbsHelper");
+// express session
+// Set up session middleware
+app.use(session({
+    secret: generateSecretKey(),  // Secret key for session encryption
+    resave: false,
+    saveUninitialized: true
+}));
 
 // app all data
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -23,6 +36,7 @@ app.use(bodyParser.json());
 app.use(flash());
 app.use(function (req, res, next) {
     res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
     next();
 })
 
